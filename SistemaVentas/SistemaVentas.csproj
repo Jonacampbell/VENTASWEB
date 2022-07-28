@@ -2939,6 +2939,7 @@
     <Content Include="Assets\Plugins\fontawesome-free-5.15.1-web\webfonts\fa-brands-400.svg" />
     <Content Include="Assets\Plugins\fontawesome-free-5.15.1-web\webfonts\fa-regular-400.svg" />
     <Content Include="Assets\Plugins\fontawesome-free-5.15.1-web\webfonts\fa-solid-900.svg" />
+    <Content Include="Assets\Plugins\images\Logo-Aluben.png" />
     <Content Include="Assets\Plugins\jquery-ui-1.12.1\AUTHORS.txt" />
     <Content Include="Assets\Plugins\jquery-ui-1.12.1\external\jquery\jquery.js" />
     <Content Include="Assets\Plugins\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
