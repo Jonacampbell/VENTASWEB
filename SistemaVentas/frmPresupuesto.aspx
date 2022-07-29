@@ -56,7 +56,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+    <div class="row my-5 mx-2">
             <div class="col-sm-12">
                <div class="card">
                   <div class="card-header p-2">
@@ -178,7 +178,7 @@
                       <div class="row mt-2">
                             <div class="col-sm-6">
                                 <div class="card">
-                                  <div class="card-body p-2">
+                                  <div class="card-body p-2 my-2">
                                       <h6 class="card-title mb-1">Detalle cliente</h6>
                                       <div class="row">
                                           <div class="col-sm-4">
@@ -285,7 +285,7 @@
 
 
                       <hr />
-                        <div class="row mt-3">
+                        <div class="row my-5">
                             <div class="col-sm-12">
                                 <div class="table-responsive-sm">
                                     <table id="tbVenta" class="table table-striped table-bordered nowrap table-sm" style="width:100%">
