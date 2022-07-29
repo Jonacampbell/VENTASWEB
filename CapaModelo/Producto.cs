@@ -13,9 +13,15 @@ namespace CapaModelo
         public int ValorCodigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public int IdColor { get; set; }
+        public Color oColor { get; set; }
         public int IdCategoria { get; set; }
         public Categoria oCategoria { get; set; }
         public bool Activo { get; set; }
+        public string Medida { get; set; }
+        public int Costo { get; set; }
+        public int PrecioVenta { get; set; }
+
 
     }
 }

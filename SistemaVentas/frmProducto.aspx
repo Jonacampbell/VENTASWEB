@@ -6,14 +6,21 @@
             <div class="col-sm-12">
                <div class="card">
                   <div class="card-header">
-                    Mantenedor Productos
+                    Maestro de Productos
                   </div>
                   <div class="card-body">
                         <div class="row">
                             <div class="col-sm-2">
-                                <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Nuevo</button>
+                                <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Nuevo Producto</button>
+                               <!-- Modal <asp:Label ID="Label1" runat="server" Text="||"></asp:Label>
+                                <button id="btnNuevaMedida" class="btn btn-sm btn-info" type="button" >Nueva Medida</button>
+                                <asp:Label ID="Label2" runat="server" Text="||"></asp:Label>
+                                <button id="btnCambioPrecio" class="btn btn-sm btn-danger" type="button" >Cambio Precio</button>
+                                    -->
                             </div>
                         </div>
+
+
                       <hr />
                         <div class="row mt-3">
                             <div class="col-sm-12">
@@ -24,7 +31,11 @@
                                             <th>Codigo</th>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
+                                            <th>Color</th>
                                             <th>Categoria</th>
+                                            <th>Medida</th>
+                                            <th>Costo</th>
+                                            <th>Precio Venta</th>
                                             <th>Estado</th>
                                             <th></th>
                                         </tr>
@@ -80,6 +91,34 @@
                     </select>
                 </div>
               </div>
+               <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label col-form-label-sm">Color</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm model" id="cboColor" name="Color">
+                    </select>
+                </div>
+              </div>
+
+                <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Medida:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtmedida" name="Costo">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Costo:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtproductocosto" name="Costo">
+                  </div>
+                </div>              
+
+                <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Precio Venta:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtprecioventa" name="PrecioVenta">
+                  </div>
+                </div> 
 
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label col-form-label-sm">Activo</label>
