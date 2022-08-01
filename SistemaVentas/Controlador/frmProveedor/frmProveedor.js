@@ -21,7 +21,7 @@ function cargarDatos() {
                 $.each(response.objeto, function (i, row) {
                     $("<tr>").append(
                         $("<td>").text(i + 1),
-                        $("<td>").text(row.Ruc),
+                        $("<td>").text(row.Cuit),
                         $("<td>").text(row.RazonSocial),
                         $("<td>").text(row.Telefono),
                         $("<td>").text(row.Correo),
@@ -53,7 +53,7 @@ $('#tbProveedor tbody').on('click', 'button[class="btn btn-sm btn-primary mr-1"]
 
     var model = $(this).data("proveedor")
     $("#txtIdProveedor").val(model.IdProveedor);
-    $("#txtRuc").val(model.Ruc);
+    $("#txtCuit").val(model.Cuit);
     $("#txtRazonSocial").val(model.RazonSocial);
     $("#txtTelefono").val(model.Telefono);
     $("#txtCorreo").val(model.Correo);
@@ -102,7 +102,7 @@ $('#tbProveedor tbody').on('click', 'button[class="btn btn-sm btn-danger"]', fun
 $('#btnNuevoProveedor').on('click', function () {
 
     $("#txtIdProveedor").val("0");
-    $("#txtRuc").val("");
+    $("#txtCuit").val("");
     $("#txtRazonSocial").val("");
     $("#txtTelefono").val("");
     $("#txtCorreo").val("");
@@ -133,7 +133,7 @@ $('#btnGuardarCambios').on('click', function () {
         var request = {
             oProveedor: {
                 IdProveedor: parseInt($("#txtIdProveedor").val()),
-                Ruc: $("#txtRuc").val(),
+                Cuit: $("#txtCuit").val(),
                 RazonSocial: $("#txtRazonSocial").val(),
                 Telefono: $("#txtTelefono").val(),
                 Correo: $("#txtCorreo").val(),

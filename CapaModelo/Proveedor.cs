@@ -9,7 +9,7 @@ namespace CapaModelo
     public class Proveedor
     {
         public int IdProveedor { get; set; }
-        public string Ruc { get; set; }
+        public string Cuit { get; set; }
         public string RazonSocial { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }
