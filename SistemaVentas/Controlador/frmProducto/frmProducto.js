@@ -2,6 +2,7 @@
 var table
 $(document).ready(function () {
     ObtenerCategoria();
+    ObtenerColor();
     cargarDatos();
     
 });
@@ -27,6 +28,9 @@ function cargarDatos() {
                         $("<td>").text(row.Nombre),
                         $("<td>").text(row.Descripcion),
                         $("<td>").text(row.oCategoria.Descripcion),
+                        $("<td>").text(row.Medida),
+                        $("<td>").text(row.Costo),
+                        $("<td>").text(row.PrecioVenta),
                         $("<td>").text(row.Activo == true ? "Activo" : "No Activo"),
                         $("<td>").append(
                             $("<button>").addClass("btn btn-sm btn-primary mr-1").text("Editar").data("producto", row),
@@ -59,6 +63,26 @@ function ObtenerCategoria() {
                     if (row.Activo == true)
                         $("<option>").attr({ "value": row.IdCategoria }).text(row.Descripcion).appendTo("#cboCategoria");
                 })
+            }
+        },
+        function () {
+            $(".card-body").LoadingOverlay("hide");
+        },
+        function () {
+            $(".card-body").LoadingOverlay("show");
+        })
+}
+
+function ObtenerColor() {
+    $("#cboColor").html("");
+    AjaxGet("../Color.cd/ObtenerColor",
+        function (response) {
+            $(".card-body").LoadingOverlay("hide");
+            if (response.estado) {
+                $.each(response.objeto, function (i, row) {
+                    if (row.IdColor != 0)
+                        $("<option>").attr({ "value": row.IdColor }).text(row.Descripcion).appendTo("#cboColor");
+            })
             }
         },
         function () {
@@ -128,6 +152,9 @@ $('#btnNuevoProducto').on('click', function () {
     $("#txtNombre").val("");
     $("#txtDescripcion").val("");
     $("select#cboCategoria").prop('selectedIndex', 0);
+    $("#txtmedida").val("");
+    $("#txtproductocosto").val("");
+    $("#txtprecioventa").val("");
 
 
     $("#cboEstado").val(1);
@@ -157,6 +184,9 @@ $('#btnGuardarCambios').on('click', function () {
                 Nombre: $("#txtNombre").val(),
                 Descripcion: $("#txtDescripcion").val(),
                 IdCategoria: $("#cboCategoria").val(),
+                Medida: $("#txtmedida").val(),
+                Costo: $("#txtproductocosto").val(),
+                PrecioVenta: $("#txtprecioventa").val(),
                 Activo: ($("#cboEstado").val() == "1" ? true : false)
             }
         }

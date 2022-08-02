@@ -51,9 +51,14 @@ namespace CapaDatos
                             Codigo = dr["Codigo"].ToString(),
                             ValorCodigo = Convert.ToInt32(dr["ValorCodigo"].ToString()),
                             Nombre = dr["Nombre"].ToString(),
-                            Descripcion = dr["DescripcionProducto"].ToString(),
+                            Descripcion = dr["Linea"].ToString(),
+                            IdColor = Convert.ToInt32(dr["IdColor"].ToString()),
                             IdCategoria = Convert.ToInt32(dr["IdCategoria"].ToString()),
+                            Medida = dr["Medida"].ToString(),
+                            Costo = Convert.ToInt32(dr["Costo"].ToString()),
+                            PrecioVenta = Convert.ToInt32(dr["PrecioVenta"].ToString()),
                             oCategoria = new Categoria() { Descripcion = dr["DescripcionCategoria"].ToString() },
+                            oColor = new Color() { Descripcion = dr["DescripcionColor"].ToString() },
                             Activo = Convert.ToBoolean(dr["Activo"].ToString())
                         });
                     }
@@ -81,6 +86,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
                     cmd.Parameters.AddWithValue("IdCategoria", oProducto.IdCategoria);
+                    cmd.Parameters.AddWithValue("Medida", oProducto.Medida);
+                    cmd.Parameters.AddWithValue("Costo", oProducto.Costo);
+                    cmd.Parameters.AddWithValue("PrecioVenta", oProducto.PrecioVenta);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
