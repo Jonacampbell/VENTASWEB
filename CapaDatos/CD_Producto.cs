@@ -35,34 +35,37 @@ namespace CapaDatos
             List<Producto> rptListaProducto = new List<Producto>();
             using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
             {
-                SqlCommand cmd = new SqlCommand("usp_ObtenerProductos", oConexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                try
+                SqlCommand cmd = new SqlCommand("usp_ObtenerProductos", oConexion)
                 {
-                    oConexion.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
+                    CommandType = CommandType.StoredProcedure
+                };
+                oConexion.Open();
+                using (var orders = cmd.ExecuteReader())
+                    try
+                {
+                    
+                    while (orders.Read())
                     {
                         rptListaProducto.Add(new Producto()
                         {
-                            IdProducto = Convert.ToInt32(dr["IdProducto"].ToString()),
-                            Codigo = dr["Codigo"].ToString(),
-                            ValorCodigo = Convert.ToInt32(dr["ValorCodigo"].ToString()),
-                            Nombre = dr["Nombre"].ToString(),
-                            Descripcion = dr["Linea"].ToString(),
-                            IdColor = Convert.ToInt32(dr["IdColor"].ToString()),
-                            IdCategoria = Convert.ToInt32(dr["IdCategoria"].ToString()),
-                            Medida = dr["Medida"].ToString(),
-                            Costo = Convert.ToInt32(dr["Costo"].ToString()),
-                            PrecioVenta = Convert.ToInt32(dr["PrecioVenta"].ToString()),
-                            oCategoria = new Categoria() { Descripcion = dr["DescripcionCategoria"].ToString() },
-                            oColor = new Color() { Descripcion = dr["DescripcionColor"].ToString() },
-                            Activo = Convert.ToBoolean(dr["Activo"].ToString())
+                            IdProducto = Convert.ToInt32(orders[0].ToString()),
+                            Codigo = orders[1].ToString(),
+                            ValorCodigo = Convert.ToInt32(orders[2].ToString()),
+                            Nombre = orders[3].ToString(),
+                            Descripcion = orders[4].ToString(),
+                            IdCategoria = Convert.ToInt32(orders[5].ToString()),
+                            oCategoria = new Categoria() { Descripcion = orders[11].ToString() },
+                            Activo = Convert.ToBoolean(orders[10].ToString()),
+                            IdColor = Convert.ToInt32(orders[6].ToString()),
+                            oColor = new Color() { Descripcion = orders[12].ToString() },
+                            Medida = orders[7].ToString(),
+                            Costo = Convert.ToInt32(orders[8].ToString()),
+                            PrecioVenta = Convert.ToInt32(orders[9].ToString())
+                            
+
                         });
                     }
-                    dr.Close();
+                    orders.Close();
 
                     return rptListaProducto;
 
@@ -86,6 +89,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
                     cmd.Parameters.AddWithValue("IdCategoria", oProducto.IdCategoria);
+                    cmd.Parameters.AddWithValue("IdColor", oProducto.IdColor);
                     cmd.Parameters.AddWithValue("Medida", oProducto.Medida);
                     cmd.Parameters.AddWithValue("Costo", oProducto.Costo);
                     cmd.Parameters.AddWithValue("PrecioVenta", oProducto.PrecioVenta);

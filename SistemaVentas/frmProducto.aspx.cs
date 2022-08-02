@@ -35,6 +35,23 @@ namespace SistemaVentas
         }
 
         [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public static Respuesta<List<Color>> ObtenerColor()
+        {
+            List<Color> oListaColor = new List<Color>();
+            oListaColor = CD_Color.Instancia.ObtenerColor();
+
+            if (oListaColor != null)
+            {
+                return new Respuesta<List<Color>>() { estado = true, objeto = oListaColor };
+            }
+            else
+            {
+                return new Respuesta<List<Color>>() { estado = false, objeto = null };
+            }
+        }
+
+        [WebMethod]
         public static Respuesta<bool> Guardar(Producto oProducto)
         {
             bool Respuesta = false;
