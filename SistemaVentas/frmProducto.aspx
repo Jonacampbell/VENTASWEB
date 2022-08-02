@@ -6,20 +6,17 @@
             <div class="col-sm-12">
                <div class="card">
                   <div class="card-header">
-                    Maestro de Productos
+                    Maestro de Artículos
                   </div>
                   <div class="card-body">
                         <div class="row">
                             <div class="col-sm-2">
-                                <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Nuevo Producto</button>
-                               <!-- Modal <asp:Label ID="Label1" runat="server" Text="||"></asp:Label>
-                                <button id="btnNuevaMedida" class="btn btn-sm btn-info" type="button" >Nueva Medida</button>
-                                <asp:Label ID="Label2" runat="server" Text="||"></asp:Label>
-                                <button id="btnCambioPrecio" class="btn btn-sm btn-danger" type="button" >Cambio Precio</button>
-                                    -->
-                            </div>
-                        </div>
+                                <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Alta Producto</button>
+                                <button id="btnNuevoSubProducto" type="button" class="btn btn-sm btn-warning">Alta Sub-Producto</button>
 
+                            </div>
+
+                        </div>
 
                       <hr />
                         <div class="row mt-3">
@@ -27,12 +24,12 @@
                                 <table id="tbProducto" class="table table-striped table-bordered nowrap compact" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                           <!-- <th>#</th> -->
                                             <th>Codigo</th>
+                                            <th>Categoria</th>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
                                             <th>Color</th>
-                                            <th>Categoria</th>
                                             <th>Medida</th>
                                             <th>Costo</th>
                                             <th>Precio Venta</th>
@@ -100,9 +97,16 @@
               </div>
 
                 <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Nuevo Color</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtcolor" name="Color">
+                  </div>
+                </div>
+
+                <div class="form-group row">
                  <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Medida:</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm model" id="txtmedida" name="Costo">
+                    <input type="text" class="form-control form-control-sm model" id="txtmedida" name="Medida">
                   </div>
                 </div>
 
@@ -129,8 +133,6 @@
                     </select>
                 </div>
               </div>
-
-
             </form>
           </div>
           <div class="modal-footer">
@@ -140,5 +142,7 @@
         </div>
       </div>
     </div>
+
+
     <script src="Controlador/frmProducto/frmProducto.js"></script>
 </asp:Content>

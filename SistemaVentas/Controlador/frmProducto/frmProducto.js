@@ -2,8 +2,8 @@
 var table
 $(document).ready(function () {
     ObtenerCategoria();
-    ObtenerColor();
     cargarDatos();
+    ObtenerColor();
     
 });
 
@@ -23,11 +23,12 @@ function cargarDatos() {
 
                 $.each(response.objeto, function (i, row) {
                     $("<tr>").append(
-                        $("<td>").text(i + 1),
+                       // $("<td>").text(i + 1),
                         $("<td>").text(row.Codigo),
+                        $("<td>").text(row.oCategoria.Descripcion),
                         $("<td>").text(row.Nombre),
                         $("<td>").text(row.Descripcion),
-                        $("<td>").text(row.oCategoria.Descripcion),
+                        $("<td>").text(row.oColor.Descripcion),
                         $("<td>").text(row.Medida),
                         $("<td>").text(row.Costo),
                         $("<td>").text(row.PrecioVenta),
@@ -75,7 +76,7 @@ function ObtenerCategoria() {
 
 function ObtenerColor() {
     $("#cboColor").html("");
-    AjaxGet("../Color.cd/ObtenerColor",
+    AjaxGet("../frmProducto.aspx/ObtenerColor",
         function (response) {
             $(".card-body").LoadingOverlay("hide");
             if (response.estado) {
@@ -102,6 +103,10 @@ $('#tbProducto tbody').on('click', 'button[class="btn btn-sm btn-primary mr-1"]'
     $("#txtNombre").val(model.Nombre);
     $("#txtDescripcion").val(model.Descripcion);
     $("#cboCategoria").val(model.IdCategoria);
+    $("#cboColor").val(model.IdColor);
+    $("#txtMedida").val(model.Medida);
+    $("#txtCosto").val(model.Costo);
+    $("#txtPrecioVenta").val(model.PrecioVenta);
     $("#cboEstado").val(model.Activo == true ? 1 : 0);
     $("#cboEstado").prop("disabled", false);
     $("#txtCodigo").prop("disabled", true)
@@ -152,6 +157,8 @@ $('#btnNuevoProducto').on('click', function () {
     $("#txtNombre").val("");
     $("#txtDescripcion").val("");
     $("select#cboCategoria").prop('selectedIndex', 0);
+    $("#txtColor").modal('hide');
+    $("select#cboColor").prop('selectedIndex', 0);
     $("#txtmedida").val("");
     $("#txtproductocosto").val("");
     $("#txtprecioventa").val("");
@@ -184,6 +191,7 @@ $('#btnGuardarCambios').on('click', function () {
                 Nombre: $("#txtNombre").val(),
                 Descripcion: $("#txtDescripcion").val(),
                 IdCategoria: $("#cboCategoria").val(),
+                IdColor: $("#cboColor").val(),
                 Medida: $("#txtmedida").val(),
                 Costo: $("#txtproductocosto").val(),
                 PrecioVenta: $("#txtprecioventa").val(),
