@@ -64,33 +64,33 @@ namespace CapaDatos
             }
         }
 
-     //   public bool RegistrarCategoria(Categoria oCategoria)
-     //   {
-     //       bool respuesta = true;
-     //       using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
-     //       {
-     //           try
-     //           {
-     //               SqlCommand cmd = new SqlCommand("usp_RegistrarCategoria", oConexion);
-     //               cmd.Parameters.AddWithValue("Descripcion", oCategoria.Descripcion);
-     //               cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-     //               cmd.CommandType = CommandType.StoredProcedure;
-     //
-     //               oConexion.Open();
-     //
-     //               cmd.ExecuteNonQuery();
-     //
-     //               respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
-     //
-     //           }
-     //           catch (Exception ex)
-     //           {
-     //               respuesta = false;
-     //           }
-     //       }
-     //       return respuesta;
-     //   }
-     //
+        public bool RegistrarColor(Color oColor)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(Conexion.CN))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("usp_RegistrarColor", oConexion);
+                    cmd.Parameters.AddWithValue("Descripcion", oColor.Descripcion);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+     
+                    oConexion.Open();
+     
+                    cmd.ExecuteNonQuery();
+     
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+     
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                }
+            }
+            return respuesta;
+        }
+     
      //   public bool ModificarCategoria(Categoria oCategoria)
      //   {
      //       bool respuesta = true;

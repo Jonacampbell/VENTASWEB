@@ -1,9 +1,9 @@
-﻿
-var table
+﻿var table
 $(document).ready(function () {
     ObtenerCategoria();
     cargarDatos();
     ObtenerColor();
+    ObtenerProducto();
     
 });
 
@@ -94,6 +94,26 @@ function ObtenerColor() {
         })
 }
 
+function ObtenerProducto() {
+    $("#cboProducto").html("");
+    AjaxGet("../frmProducto.aspx/Obtener",
+        function (response) {
+            $(".card-body").LoadingOverlay("hide");
+            if (response.estado) {
+                $.each(response.objeto, function (i, row) {
+                    if (row.Nombre != 0)
+                        $("<option>").attr({ "value": row.IdProducto }).text(row.Nombre).appendTo("#cboProducto");
+                })
+            }
+        },
+        function () {
+            $(".card-body").LoadingOverlay("hide");
+        },
+        function () {
+            $(".card-body").LoadingOverlay("show");
+        })
+}
+
 
 $('#tbProducto tbody').on('click', 'button[class="btn btn-sm btn-primary mr-1"]', function () {
 
@@ -168,12 +188,32 @@ $('#btnNuevoProducto').on('click', function () {
     $("#cboEstado").prop("disabled", true);
 
     $('#modalrol').modal('show');
+
+})
+
+$('#btnIncrementos').on('click', function () {
+    //$("#txtIdProducto").val("0"); 
+    //$("#txtCodigo").val("AUTOGENERADO");
+    //$("#txtCodigo").prop("disabled", true)
+    //$("#txtNombre").val("");
+    //$("#txtDescripcion").val("");
+    $("select#cboProducto").prop('selectedIndex', 0);
+    //$("#txtColor").modal('hide');
+    //$("select#cboColor").prop('selectedIndex', 0);
+    //$("#txtmedida").val("");
+    //$("#txtproductocosto").val("");
+    $("#txtIncremento").val("");
+    //
+    //$("#cboEstado").val(1);
+    //$("#cboEstado").prop("disabled", true);
+
+    $('#modalrol2').modal('show');
+
 })
 
 $('#btnGuardarCambios').on('click', function () {
     var camposvacios = false;
     var fields = $(".model").serializeArray();
-
 
     $.each(fields, function (i, field) {
         if (!field.value) {
@@ -242,3 +282,4 @@ $('#btnGuardarCambios').on('click', function () {
 
 
 })
+

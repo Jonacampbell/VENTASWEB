@@ -60,6 +60,14 @@ namespace SistemaVentas
         }
 
         [WebMethod]
+        public static Respuesta<bool> GuardarColor(Color oColor)
+        {
+            bool Respuesta = false;
+            Respuesta = CD_Color.Instancia.RegistrarColor(oColor);
+            return new Respuesta<bool>() { estado = Respuesta };
+        }
+
+        [WebMethod]
         public static Respuesta<bool> Editar(Producto oProducto)
         {
             bool Respuesta = false;
