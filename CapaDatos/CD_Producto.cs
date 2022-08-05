@@ -123,6 +123,10 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Nombre", oProducto.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", oProducto.Descripcion);
                     cmd.Parameters.AddWithValue("IdCategoria", oProducto.IdCategoria);
+                    cmd.Parameters.AddWithValue("IdColor", oProducto.IdColor);
+                    cmd.Parameters.AddWithValue("Medida", oProducto.Medida);
+                    cmd.Parameters.AddWithValue("Costo", oProducto.Costo);
+                    cmd.Parameters.AddWithValue("PrecioVenta", oProducto.PrecioVenta);
                     cmd.Parameters.AddWithValue("Activo", oProducto.Activo);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
 

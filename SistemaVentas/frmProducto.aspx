@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Alta Producto</button>
-                                <button id="btnNuevoSubProducto" type="button" class="btn btn-sm btn-warning">Alta Sub-Producto</button>
+                                <button id="btnCambioPrecio" type="button" class="btn btn-sm btn-warning">Cambio Precios</button>
 
                             </div>
 
@@ -136,6 +136,42 @@
       </div>
     </div>
 
+    <!-- Modal_2 -->
+
+        <div class="modal fade" id="modalrol2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Cambio de Precio por Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+               <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label col-form-label-sm">Producto</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm model" id="cboProducto" name="Producto">
+                    </select>
+                </div>
+              </div>
+
+                <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Precio %</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtPrecio" name="Precio">
+                  </div>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button id="btnGuardarCambios2" type="button" class="btn btn-sm btn-primary">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="Controlador/frmProducto/frmProducto.js"></script>
 </asp:Content>

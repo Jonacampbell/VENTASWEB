@@ -21,9 +21,6 @@ namespace CapaModelo
         public string Medida { get; set; }
         public int Costo { get; set; }
         public int PrecioVenta { get; set; }
-        public Color oMedida { get; set; }
-
-
 
     }
 }

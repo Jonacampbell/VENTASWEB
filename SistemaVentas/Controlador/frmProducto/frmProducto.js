@@ -94,7 +94,6 @@ function ObtenerColor() {
         })
 }
 
-
 $('#tbProducto tbody').on('click', 'button[class="btn btn-sm btn-primary mr-1"]', function () {
 
     var model = $(this).data("producto")
@@ -107,6 +106,7 @@ $('#tbProducto tbody').on('click', 'button[class="btn btn-sm btn-primary mr-1"]'
     $("#txtMedida").val(model.Medida);
     $("#txtCosto").val(model.Costo);
     $("#txtPrecioVenta").val(model.PrecioVenta);
+    $("#txtPrecio").val("0");
     $("#cboEstado").val(model.Activo == true ? 1 : 0);
     $("#cboEstado").prop("disabled", false);
     $("#txtCodigo").prop("disabled", true)
@@ -168,6 +168,30 @@ $('#btnNuevoProducto').on('click', function () {
     $("#cboEstado").prop("disabled", true);
 
     $('#modalrol').modal('show');
+})
+
+$('#btnCambioPrecio').on('click', function () {
+
+    $("#cboProducto").html("");
+    AjaxGet("../frmProducto.aspx/Obtener",
+        function (response) {
+            $(".card-body").LoadingOverlay("hide");
+            if (response.estado) {
+                $.each(response.objeto, function (i, row) {
+                    if (row.IdProducto != 0)
+                        $("<option>").text(row.Nombre).appendTo("#cboProducto");
+                })
+            }
+        },
+        function () {
+            $(".card-body").LoadingOverlay("hide");
+        },
+        function () {
+            $(".card-body").LoadingOverlay("show");
+        })
+    $("select#cboProducto").prop('selectedIndex', 0);
+
+    $('#modalrol2').modal('show');
 })
 
 $('#btnGuardarCambios').on('click', function () {
