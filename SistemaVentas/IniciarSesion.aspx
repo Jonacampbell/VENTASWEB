@@ -19,8 +19,8 @@
 <body>
     <div class="registration-form">
         <form>
-            <div class="form-icon">
-                <span><i class="bi bi-person-fill"></i></span>
+            <div>
+                <span><img src="Assets/Plugins/images/Logo-Aluben.png" class="m-5"/></span>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" id="username" placeholder="Usuario" value="Admin"/>
