@@ -3241,10 +3241,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{2e29b887-97a3-47a9-b0f8-fb30eed30c3c}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CapaModelo\CapaModelo.csproj">
       <Project>{331f024e-b461-440d-a50b-ff6c79311af3}</Project>
       <Name>CapaModelo</Name>
