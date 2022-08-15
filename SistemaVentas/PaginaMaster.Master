@@ -55,7 +55,7 @@
 
   <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color:#455ea8">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
       <a class="navbar-brand" href="Inicio.aspx">
           <img class="logonav"src="Assets/Plugins/images/Logo-Aluben.png" height="20" width="100" alt="logoaluben" />
