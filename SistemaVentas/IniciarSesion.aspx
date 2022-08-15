@@ -16,7 +16,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
-<body>
+<body style="background-color:#455fa9">
     <div class="registration-form">
         <form>
             <div>
