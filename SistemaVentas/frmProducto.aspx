@@ -10,7 +10,7 @@
                   </div>
                   <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <button id="btnNuevoProducto" type="button" class="btn btn-sm btn-success">Alta Producto</button>
                                 <button id="btnNuevoSubProducto" type="button" class="btn btn-sm btn-warning">Alta Sub-Producto</button>
 
@@ -95,6 +95,13 @@
                     </select>
                 </div>
               </div>
+
+                <div class="form-group row">
+                 <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Nuevo Color</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm model" id="txtcolor" name="Color">
+                  </div>
+                </div>
 
                 <div class="form-group row">
                  <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-sm">Medida:</label>
